@@ -1,3 +1,40 @@
-[gd_scene format=3 uid="uid://dgcbpp4bxn0hu"]
+[gd_scene load_steps=2 format=3 uid="uid://bg264mbon0l7k"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://item_select/itemSelect.gd" id="1_ap1bl"]
+
+[node name="ItemSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ap1bl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1196.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="BaseVBox" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="BaseItemsLabel" type="Label" parent="HBoxContainer/BaseVBox"]
+layout_mode = 2
+text = "Choose 2 Base Items!"
+
+[node name="BaseItemsGridContainer" type="GridContainer" parent="HBoxContainer/BaseVBox"]
+layout_mode = 2
+
+[node name="UltimateVBox" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="UltimateItemLabel" type="Label" parent="HBoxContainer/UltimateVBox"]
+layout_mode = 2
+text = "Choose 1 Ultimate Item!"
+
+[node name="UltimateItemGridContainer" type="GridContainer" parent="HBoxContainer/UltimateVBox"]
+layout_mode = 2
