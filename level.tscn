@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://jcubgl4f4urc"]
+
+[ext_resource type="PackedScene" uid="uid://dm4x12ykv2cur" path="res://player.tscn" id="1_usqxx"]
+[ext_resource type="PackedScene" uid="uid://f6qm2lkc8vxo" path="res://ground.tscn" id="2_dneru"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Ground" parent="." instance=ExtResource("2_dneru")]
+position = Vector2(560, 851)
+scale = Vector2(78.9564, 26.7493)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_usqxx")]
+position = Vector2(108, 505)
+scale = Vector2(10.1089, 10.1437)

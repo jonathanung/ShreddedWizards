@@ -8,8 +8,6 @@ var Mana: int = 10;
 
 var Velocity: int = 0;
 
-var resource = load("res://player_shape.tres")
-
 func _init():
 	pass	
 
@@ -33,15 +31,13 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	self.position.x += self.velocity.x * delta
+	move_and_collide(Vector2(0, 1))
+	
+	if (Input.is_action_pressed("move_left")):
+		self.position.x -= self.velocity.x * delta
+	elif (Input.is_action_pressed("move_right")):
+		self.position.x += self.velocity.x * delta
 
-func _input(event):	
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_RIGHT:
-			self.position.x += 5
-			
-			#self.velo
-		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

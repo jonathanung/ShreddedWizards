@@ -3,20 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://w2b4es813tgf" path="res://sprites/players/wizard1.png" id="1_4kcew"]
 [ext_resource type="Script" path="res://player.gd" id="1_fculk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qg3t"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pflv"]
 
-[node name="Player" type="Node2D"]
-position = Vector2(3, 4)
-scale = Vector2(1.37355, 1.55954)
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2.14709, 2.03643)
 script = ExtResource("1_fculk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_4qg3t")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6pflv")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(10, 10)
-scale = Vector2(1.25, 1.25)
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("1_4kcew")
