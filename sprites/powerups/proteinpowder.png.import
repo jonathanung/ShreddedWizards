@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://7w5vtejagih8"
+=======
+uid="uid://bfsfjkbpdkd3q"
+>>>>>>> 4c544a0 (rebase menu to main)
 path="res://.godot/imported/proteinpowder.png-3725853856adc1c04e6cf181627a404a.ctex"
 metadata={
 "vram_texture": false
