@@ -1,0 +1,7 @@
+[gd_resource type="RectangleShape2D" script_class="Player" load_steps=2 format=3 uid="uid://cwo7iv4kn1fdi"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_2gjlv"]
+
+[resource]
+size = Vector2(48.9406, 4.56085)
+script = ExtResource("1_2gjlv")
