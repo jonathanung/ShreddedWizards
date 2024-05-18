@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo07mg3twnubj"]
+[gd_scene load_steps=6 format=3 uid="uid://c8qo8mmttnqqj"]
 
 [ext_resource type="Shape2D" uid="uid://dd20termiec0u" path="res://ground.tres" id="1_yys2h"]
 [ext_resource type="Shape2D" uid="uid://cwo7iv4kn1fdi" path="res://player_shape.tres" id="2_nitwn"]

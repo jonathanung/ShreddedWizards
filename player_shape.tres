@@ -3,5 +3,5 @@
 [ext_resource type="Script" path="res://player.gd" id="1_2gjlv"]
 
 [resource]
-size = Vector2(48.9406, 4.56085)
+size = Vector2(4.47029, 4.56085)
 script = ExtResource("1_2gjlv")

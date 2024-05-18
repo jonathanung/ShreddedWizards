@@ -1,4 +1,4 @@
-class_name Player extends Area2D
+class_name Player extends CharacterBody2D
 
 var Health: int = 100;
 
@@ -29,14 +29,19 @@ func UseMana(mana: int):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	self.velocity.x += 40
+	pass
+
+func _physics_process(delta):
+	self.position.x += self.velocity.x * delta
 
 func _input(event):	
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_RIGHT:
 			self.position.x += 5
+			
+			#self.velo
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	pass
