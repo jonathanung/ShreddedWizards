@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b162i6wcovwxq"
-path="res://.godot/imported/proteinpowder.png-3725853856adc1c04e6cf181627a404a.ctex"
+uid="uid://d2imvsi2c4gmt"
+path="res://.godot/imported/smallfireball.png-79251ae26a9804fc44e3917d8c036d92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/proteinpowder.png"
-dest_files=["res://.godot/imported/proteinpowder.png-3725853856adc1c04e6cf181627a404a.ctex"]
+source_file="res://sprites/projectilesandeffects/smallfireball.png"
+dest_files=["res://.godot/imported/smallfireball.png-79251ae26a9804fc44e3917d8c036d92.ctex"]
 
 [params]
 
