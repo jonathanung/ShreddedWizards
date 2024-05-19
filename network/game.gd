@@ -14,7 +14,6 @@ var _turn = -1
 func _log(what):
 	$HBoxContainer/RichTextLabel.add_text(what + "\n")
 
-
 @rpc("any_peer")
 func set_player_name(p_name):
 	if not is_multiplayer_authority():
