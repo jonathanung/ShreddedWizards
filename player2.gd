@@ -25,7 +25,16 @@ var isHost: bool
 var bodiesLeft: Array = []
 var bodiesRight: Array = []
 
+#var canAttack: bool = true
+var cooldown: int = 0
+var baseCool: float = 0.005
+
+var region_enabled: bool
+var region_rect: Rect2
+
 @onready var sprite: Sprite2D = $Sprite2D
+@export var frame_size: Vector2 = Vector2(16, 16)  # Size of each frame in the sprite sheet
+
 
 enum AttackType {
 	BASIC,
@@ -59,6 +68,7 @@ func setDefaultMaxAttributes():
 	JumpVelocity = -250
 	MaxVelocityX = 250
 	AccelerationX = 100
+	baseCool = 0.05
 
 func BaseItemUsed(item: String):
 	if (item == "Gloves"):
@@ -100,11 +110,13 @@ func UltItemUsed(item: String):
 	if (item == "Roids"):
 		Muscle *= 1.5
 		MaxVelocityX *= 1.5
+		baseCool *= 0.5
 		await get_tree().create_timer(10.0).timeout
 		setDefaultMaxAttributes()
 
 	elif (item == "Baton"):
 		#implement extra range later
+		baseCool *= 0.3
 		await get_tree().create_timer(25.0).timeout
 		setDefaultMaxAttributes()
 		pass
@@ -118,6 +130,7 @@ func UltItemUsed(item: String):
 	elif (item == "IceCream"):
 		#implement Marvin Mode later
 		MaxVelocityX *= 2.5
+		baseCool *= 0.5
 		await get_tree().create_timer(15.0).timeout
 		setDefaultMaxAttributes()
 
@@ -126,13 +139,28 @@ func _ready():
 	item_Base = GlobalState.get_base_items_2()
 	item_Ult = GlobalState.get_ultimate_item_2()
 	
+	$Sprite2D2.texture = preload("res://sprites/players/wizard2.png")
+	
 	isLeftDir = false;
 	isHost = true;
 	$LeftZone.connect("body_entered", Callable(self, "_left_zone_entered"))
 	$LeftZone.connect("body_exited", Callable(self, "_left_zone_exited"))
 	$RightZone.connect("body_entered", Callable(self, "_right_zone_entered"))
 	$RightZone.connect("body_exited", Callable(self, "_right_zone_exited"))
+	# Ensure region is enabled
+	region_enabled = true
+	# Set initial region
+	set_region(Vector2(0, 0))
 
+func set_region(position: Vector2):
+	# Set the region rect to display the part of the texture
+	region_rect = Rect2(position, frame_size)
+
+func move_region(offset: Vector2):
+	# Example function to move region based on an offset
+	var new_position = region_rect.position + offset
+	set_region(new_position)
+	
 func _physics_process(delta):
 
 	# Here I am just setting the index in the array to empty string after item has been used
@@ -173,6 +201,10 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if cooldown > 0:
+		set_region(Vector2(2,2))
+	else:
+		set_region(Vector2(0,0))
 	if Input.is_action_just_pressed("die"):
 		#print("Force Die")
 		Die()
@@ -183,14 +215,26 @@ func isDead():
 	return false
 	
 func attack(Atk):
-	if isLeftDir:
-		for body in bodiesLeft:
-			if body is Player or body is Player2 or body is Dummy:
-				body.takeDamage(Atk, Muscle)
-	else:
-		for body in bodiesRight:
-			if body is Player or body is Player2 or body is Dummy:
-				body.takeDamage(Atk, Muscle)
+	#if canAttack:
+		#canAttack = false
+	if cooldown == 0:
+		cooldown = 100
+		if isLeftDir:
+			for body in bodiesLeft:
+				if body is Player or body is Player2 or body is Dummy:
+					body.takeDamage(Atk, Muscle)
+		else:
+			for body in bodiesRight:
+				if body is Player or body is Player2 or body is Dummy:
+					body.takeDamage(Atk, Muscle)
+		if Atk == AttackType.BASIC:
+			while cooldown > 0:
+				await get_tree().create_timer(baseCool).timeout
+				cooldown -= 1
+		elif Atk == AttackType.STRONG:
+			while cooldown > 0:
+				await get_tree().create_timer(baseCool * 4).timeout
+				cooldown -= 1
 			
 func takeDamage(Atk, Muscle):
 	if Atk == AttackType.BASIC:
@@ -233,3 +277,6 @@ func getAbilities():
 	if item_Ult:
 		res.append(item_Ult)
 	return res
+
+func getCooldown():
+	return cooldown

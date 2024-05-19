@@ -38,8 +38,10 @@ func _process(delta):
 		#dummyLabel.text = "Dummy HP: %s" % dummy.getHP()
 	$Status/Player1HP.text = "PLAYER 1 HP: %s" % player.getHP()
 	$Status/Player1AbilitiesText.text = array_to_string(player.getAbilities())
+	$Status/Player1AttackCooldown.text = "ATK Cooldown: %s" % player.getCooldown()
 	$Status/Player2HP.text = "PLAYER 2 HP: %s" % player2.getHP()
 	$Status/Player2AbilitiesText.text = array_to_string(player2.getAbilities())
+	$Status/Player2AttackCooldown.text = "ATK Cooldown: %s" % player2.getCooldown()
 	if spawnDummy:
 		$Status/Player2HP.text = "DUMMU HP: %s" % dummy.getHP()
 	else:

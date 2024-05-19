@@ -34,22 +34,27 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player1Ability2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player1Ability3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player2Ability1" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player2Ability2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player2Ability3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -72,3 +77,19 @@ offset_top = -1.0
 offset_right = 141.0
 offset_bottom = 22.0
 text = "P1ABILITIES"
+
+[node name="Player1AttackCooldown" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 26.0
+offset_right = 43.0
+offset_bottom = 49.0
+text = "P1C"
+
+[node name="Player2AttackCooldown" type="Label" parent="."]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 38.0
+offset_right = 810.0
+offset_bottom = 61.0
+text = "P2C"
