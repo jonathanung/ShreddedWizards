@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1wc424kkiueg"]
+[gd_scene load_steps=4 format=3 uid="uid://b1wc424kkiueg"]
 
-[ext_resource type="PackedScene" uid="uid://3wa5q0tbgl5h" path="res://player.tscn" id="1_usqxx"]
+[ext_resource type="Script" path="res://level.gd" id="1_aapnr"]
+[ext_resource type="PackedScene" uid="uid://d0v3q1q6hkm48" path="res://player.tscn" id="1_usqxx"]
 [ext_resource type="PackedScene" uid="uid://b23ucfskdaooh" path="res://ground.tscn" id="2_dneru"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_aapnr")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_usqxx")]
 position = Vector2(78, 548)
@@ -11,3 +13,12 @@ scale = Vector2(10.1089, 10.1437)
 
 [node name="Area2D" parent="." instance=ExtResource("2_dneru")]
 position = Vector2(60, 671)
+
+[node name="YouLoseLabel" type="Label" parent="."]
+offset_left = 311.0
+offset_top = 255.0
+offset_right = 389.0
+offset_bottom = 278.0
+text = "YOU LOSE"
+
+[node name="Timer" type="Timer" parent="."]

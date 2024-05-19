@@ -92,7 +92,8 @@ func _on_go_press():
 	if(len(selected_base_items) == 2 and selected_ultimate_item):
 		GlobalState.set_base_items(selected_base_items[0], selected_base_items[1])
 		GlobalState.set_ultimate_item(selected_ultimate_item)
-		get_tree().change_scene_to_file("res://arenas/testing.tscn")
+		#get_tree().change_scene_to_file("res://arenas/testing.tscn")
+		get_tree().change_scene_to_file("res://level.tscn")
 	else:
 		errLabel.text = ""
 		if(len(selected_base_items) != 2):

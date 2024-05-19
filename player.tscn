@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0v3q1q6hkm48"]
+[gd_scene load_steps=5 format=3 uid="uid://d0v3q1q6hkm48"]
 
 [ext_resource type="Texture2D" uid="uid://w2b4es813tgf" path="res://sprites/players/wizard1.png" id="1_4kcew"]
 [ext_resource type="Script" path="res://player.gd" id="1_fculk"]
