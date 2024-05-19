@@ -10,15 +10,9 @@ var Gravity: int = 400
 
 var JumpVelocity: int = -400
 
-#var Velocity: Vector2 = Vector2.ZERO
+var MaxVelocityX: int = 1000
 
-#var IsOnGround: bool = false
-
-#var GroundPosition = 580
-
-const MaxVelocityX: int = 1000
-
-const AccelerationX: int = 500
+var AccelerationX: int = 500
 
 func _init():
 	pass	
