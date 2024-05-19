@@ -4,8 +4,8 @@ var NetworkPane
 
 # Function called when the Start Button is pressed
 func _on_StartButton_pressed():
-	NetworkPane.set_visible(true)
-	#get_tree().change_scene_to_file("res://item_select.tscn")
+	#NetworkPane.set_visible(true)
+	get_tree().change_scene_to_file("res://item_select.tscn")
 	
 
 # Function called when the Settings Button is pressed
