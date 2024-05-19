@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://dummy.gd" id="1_kw7b4"]
 [ext_resource type="Texture2D" uid="uid://w2b4es813tgf" path="res://sprites/players/wizard1.png" id="2_noyad"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6pflv"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sanjo"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_13nm7"]
 properties/0/path = NodePath(".:position")
@@ -22,7 +21,7 @@ scale = Vector2(2.14709, 2.03643)
 script = ExtResource("1_kw7b4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_6pflv")
+shape = SubResource("RectangleShape2D_sanjo")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("2_noyad")

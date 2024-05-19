@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+var fireballResource = preload("res://fireball.tscn")
+
 var MaxHealth: float = 100
 var CurrentHealth: float = 100
 
@@ -123,6 +125,7 @@ func UltItemUsed(item: String):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	item_Base = GlobalState.get_base_items()
 	item_Ult = GlobalState.get_ultimate_item()
 	
@@ -151,6 +154,8 @@ func _physics_process(delta):
 	#do timers here
 	if Input.is_action_just_pressed("strong"):
 		attack(AttackType.STRONG)
+	if Input.is_action_just_pressed("ranged"):
+		attack(AttackType.RANGED)
 	#do timers here
 
 	if not is_on_floor():
@@ -183,7 +188,13 @@ func isDead():
 	return false
 	
 func attack(Atk):
-	if isLeftDir:
+	if Atk == AttackType.RANGED and CurrentMana > 0:
+		CurrentMana -= 1
+		var f = fireballResource.instantiate()
+		owner.add_child(f)
+		f.transform = $Wand.global_transform
+		
+	elif isLeftDir:
 		for body in bodiesLeft:
 			if body is Player:
 				body.takeDamage(Atk, Muscle)
@@ -230,3 +241,9 @@ func getHP():
 
 func flip_sprite():
 	$Sprite2D2.flip_h = !isLeftDir
+	if isLeftDir:
+		$Wand.position.x = -9.315
+		$Wand.transform.x = -abs($Wand.transform.x)
+	else:
+		$Wand.position.x = 9.315
+		$Wand.transform.x = abs($Wand.transform.x)

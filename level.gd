@@ -3,6 +3,9 @@ extends Node2D
 var playerResource = preload("res://player.tscn")
 var player
 
+var fireballResource = preload("res://fireball.tscn")
+var fireball
+
 var spawnDummy: bool = true
 var dummy
 var dummyLabel
@@ -12,6 +15,7 @@ var dummyLabel
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = $Player
+	fireball = $Fireball
 	if spawnDummy:
 		dummy = $Dummy
 		dummyLabel = $DummyLabel
@@ -55,6 +59,8 @@ func _on_map_boundary_body_entered(body):
 		player.Die();
 		#print("Player entered the map boundary")
 		# Add your desired action here when the player enters the map boundary
+	if body == fireball:
+		fireball.Die()
 
 func _register_hit():
 	pass
