@@ -13,9 +13,8 @@ func _ready():
 	$Timer.stop()  # Ensure the timer is stopped initially
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta):	
 	if player.isDead() and $Timer.is_stopped():
-		print("die")
 		_show_you_lose_message()
 
 func _show_you_lose_message():

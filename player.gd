@@ -206,6 +206,8 @@ func _enter_tree():
 func _physics_process(delta):
 	# Here I am just setting the index in the array to empty string after item has been used
 	# We can find better way to implement in the future if we want - Sam
+	position = position.clamp(Vector2(0, 0), Vector2(1200, 900))
+	
 	if (multiplayer.multiplayer_peer != null):
 		if is_multiplayer_authority():
 			if Input.is_action_just_pressed("item_slot_1"):
@@ -221,15 +223,15 @@ func _physics_process(delta):
 			if not is_on_floor():
 				velocity.y += Gravity*delta
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JumpVelocity
-		
-	var direction = Input.get_axis("move_left","move_right")
-	if direction:
-		velocity.x = move_toward(velocity.x,MaxVelocityX*direction,AccelerationX)
-	else:
-		velocity.x = move_toward(velocity.x,0,AccelerationX)
-#
+			if Input.is_action_just_pressed("jump") and is_on_floor():
+				velocity.y = JumpVelocity
+				
+			var direction = Input.get_axis("move_left","move_right")
+			if direction:
+				velocity.x = move_toward(velocity.x,MaxVelocityX*direction,AccelerationX)
+			else:
+				velocity.x = move_toward(velocity.x,0,AccelerationX)
+		#
 	#velocity = Input.get_vector("ui_left","ui_right","ui_up","ui_down") * 400
 	#print(name, ": ", position.x, ", ", position.y)
 			

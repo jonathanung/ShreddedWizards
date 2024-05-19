@@ -1,4 +1,4 @@
-extends Control	
+extends Node	
 
 var peer = ENetMultiplayerPeer.new()
 
@@ -13,6 +13,8 @@ func _on_host_pressed():
 
 	multiplayer.peer_connected.connect(_add_player)
 	_add_player()
+	$Host.visible = false
+	$Join.visible = false
 
 func _add_player(id: int = 1):
 	var player = Scene.instantiate()
@@ -22,12 +24,15 @@ func _add_player(id: int = 1):
 
 func _on_join_pressed():
 	peer.create_client(ServerIP, Port)
-
+	
 	multiplayer.multiplayer_peer = peer
+	$Host.visible = false
+	$Join.visible = false
 
 func _on_exit_button_pressed():
 	multiplayer.multiplayer_peer = null
 	print("Peer disconnected")
+
 # const DEF_PORT = 8080
 # const PROTO_NAME = "ludus"
 

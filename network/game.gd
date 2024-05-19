@@ -44,12 +44,10 @@ func request_action(action):
 	do_action(action)
 	next_turn()
 
-
 func do_action(action):
 	var player_name = _list.get_item_text(_turn)
 	var val = randi() % 100
 	_log.rpc("%s: %ss %d" % [player_name, action, val])
-
 
 @rpc("call_local")
 func set_turn(turn):

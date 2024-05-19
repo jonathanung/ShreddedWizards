@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6mir6uwtl3le"]
+[gd_scene load_steps=15 format=3 uid="uid://c6mir6uwtl3le"]
 
 [ext_resource type="Texture2D" uid="uid://bh2b7b5gnlnif" path="res://sprites/world/brick.png" id="1_mqlg2"]
 [ext_resource type="Texture2D" uid="uid://ctaqmmssmkqpx" path="res://sprites/world/sky.png" id="2_iepep"]
 [ext_resource type="PackedScene" uid="uid://3wa5q0tbgl5h" path="res://player.tscn" id="3_jqvve"]
+[ext_resource type="Script" path="res://network/networkPane.gd" id="4_j8nws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0r28"]
 texture = ExtResource("1_mqlg2")
@@ -38,6 +39,8 @@ size = Vector2(17, 788)
 size = Vector2(1247, 20)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("4_j8nws")
+Scene = ExtResource("3_jqvve")
 
 [node name="map" type="StaticBody2D" parent="."]
 
@@ -95,3 +98,21 @@ position = Vector2(17.5, -1042)
 shape = SubResource("RectangleShape2D_y4ohg")
 
 [node name="Player" parent="." instance=ExtResource("3_jqvve")]
+
+[node name="Host" type="Button" parent="."]
+offset_left = 520.0
+offset_top = 336.0
+offset_right = 651.0
+offset_bottom = 367.0
+text = "Host"
+
+[node name="Join" type="Button" parent="."]
+offset_left = 518.0
+offset_top = 399.0
+offset_right = 649.0
+offset_bottom = 430.0
+text = "Join
+"
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
