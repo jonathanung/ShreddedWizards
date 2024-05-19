@@ -1,3 +1,163 @@
-[gd_scene format=3 uid="uid://dgcbpp4bxn0hu"]
+[gd_scene load_steps=3 format=3 uid="uid://yxsu8g3suvyg"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://item_select/itemSelect.gd" id="1_ap1bl"]
+[ext_resource type="Script" path="res://item_select/ItemButton.gd" id="2_lkuj1"]
+
+[node name="ItemSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ap1bl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BaseVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BaseItemsLabel" type="Label" parent="VBoxContainer/HBoxContainer/BaseVBox"]
+layout_mode = 2
+text = "Choose 2 Base Items!"
+
+[node name="BaseItemsGridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/BaseVBox"]
+layout_mode = 2
+
+[node name="Gloves" type="TextureButton" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer/Gloves"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Book" type="TextureButton" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer/Book"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Creatine" type="TextureButton" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer/Creatine"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LiftingStraps" type="TextureButton" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer/LiftingStraps"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PreWorkout" type="TextureButton" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer/PreWorkout"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProteinPowder" type="TextureButton" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/BaseVBox/BaseItemsGridContainer/ProteinPowder"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UltimateVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="UltimateItemLabel" type="Label" parent="VBoxContainer/HBoxContainer/UltimateVBox"]
+layout_mode = 2
+text = "Choose 1 Ultimate Item!"
+
+[node name="UltimateItemGridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/UltimateVBox"]
+layout_mode = 2
+
+[node name="Baton" type="TextureButton" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer/Baton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthPot" type="TextureButton" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer/HealthPot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ManaPot" type="TextureButton" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer/ManaPot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Roids" type="TextureButton" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer/Roids"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IceCream" type="TextureButton" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer/IceCream"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BaseLabel" type="Label" parent="VBoxContainer/HBoxContainer/TextVBox"]
+layout_mode = 2
+
+[node name="UltimateLabel" type="Label" parent="VBoxContainer/HBoxContainer/TextVBox"]
+layout_mode = 2
+
+[node name="ErrLabel" type="Label" parent="VBoxContainer/HBoxContainer/TextVBox"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Go!"

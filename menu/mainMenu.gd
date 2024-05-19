@@ -1,14 +1,16 @@
 extends Control
 
+var NetworkPane
+
 # Function called when the Start Button is pressed
 func _on_StartButton_pressed():
-	var game_scene = load("res://path_to_your_game_scene.tscn")
-	get_tree().change_scene_to(game_scene)
+	#NetworkPane.set_visible(true)
+	get_tree().change_scene_to_file("res://item_select.tscn")
+	
 
 # Function called when the Settings Button is pressed
 func _on_SettingsButton_pressed():
-	var settings_scene = load("res://path_to_your_settings_scene.tscn")
-	get_tree().change_scene_to(settings_scene)
+	get_tree().change_scene_to_file("res://item_select.tscn")
 
 # Function called when the Exit Button is pressed
 func _on_ExitButton_pressed():
@@ -32,6 +34,8 @@ func set_button_opacity(button: Button):
 	button.add_theme_color_override("font_color", Color(0, 0, 0))  # Black text color
 
 func _ready():
+	NetworkPane = $NetworkPane
+	
 	$VBoxContainer/StartButton.text = "Start Game"
 	$VBoxContainer/SettingsButton.text = "Settings"
 	$VBoxContainer/ExitButton.text = "Exit"

@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 
 LevelVars="*res://level_vars.gd"
 
+[autoload]
+
+GlobalState="*res://globalState.gd"
+
 [display]
 
 window/size/viewport_width=1200

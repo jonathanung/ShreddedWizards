@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b162i6wcovwxq"
-path="res://.godot/imported/proteinpowder.png-3725853856adc1c04e6cf181627a404a.ctex"
+uid="uid://bnc6fykic11xu"
+path="res://.godot/imported/manapot.png-6929276fc8e7c8593c54e881d1f1d032.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/proteinpowder.png"
-dest_files=["res://.godot/imported/proteinpowder.png-3725853856adc1c04e6cf181627a404a.ctex"]
+source_file="res://sprites/powerups/manapot.png"
+dest_files=["res://.godot/imported/manapot.png-6929276fc8e7c8593c54e881d1f1d032.ctex"]
 
 [params]
 
