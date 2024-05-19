@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6mir6uwtl3le"]
+[gd_scene load_steps=14 format=3 uid="uid://c6mir6uwtl3le"]
 
 [ext_resource type="Texture2D" uid="uid://bh2b7b5gnlnif" path="res://sprites/world/brick.png" id="1_mqlg2"]
 [ext_resource type="Texture2D" uid="uid://ctaqmmssmkqpx" path="res://sprites/world/sky.png" id="2_iepep"]
+[ext_resource type="PackedScene" uid="uid://bwd5vli0git0n" path="res://player.tscn" id="3_jqvve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0r28"]
 texture = ExtResource("1_mqlg2")
@@ -91,3 +92,5 @@ shape = SubResource("RectangleShape2D_3avfb")
 [node name="top" type="CollisionShape2D" parent="mapboundary"]
 position = Vector2(17.5, -1042)
 shape = SubResource("RectangleShape2D_y4ohg")
+
+[node name="Player" parent="." instance=ExtResource("3_jqvve")]
