@@ -90,7 +90,7 @@ func _update_ultimate_item_buttons():
 	
 func _on_go_press():
 	if(len(selected_base_items) == 2 and selected_ultimate_item):
-		get_tree().change_scene_to_file("res://menu.tscn")
+		get_tree().change_scene_to_file("res://arenas/testing.tscn")
 	else:
 		errLabel.text = ""
 		if(len(selected_base_items) != 2):

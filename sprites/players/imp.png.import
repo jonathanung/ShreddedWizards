@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3vcbkglg7yl"
-path="res://.godot/imported/Creatine.png-35fdcd14688ee3bd6a34cd34d1c9f732.ctex"
+uid="uid://ccelfqbceotgc"
+path="res://.godot/imported/imp.png-3e752aca3c90c3b6fa833a471e5c7893.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/Creatine.png"
-dest_files=["res://.godot/imported/Creatine.png-35fdcd14688ee3bd6a34cd34d1c9f732.ctex"]
+source_file="res://sprites/players/imp.png"
+dest_files=["res://.godot/imported/imp.png-3e752aca3c90c3b6fa833a471e5c7893.ctex"]
 
 [params]
 
