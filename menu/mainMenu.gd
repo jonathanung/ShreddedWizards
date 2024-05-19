@@ -7,7 +7,7 @@ func _on_StartButton_pressed():
 
 func _on_MultiplayerButton_pressed():
 	#NetworkPane.set_visible(true)
-	get_tree().change_scene_to_file("res://network_menu.tscn")
+	get_tree().change_scene_to_file("res://item_select.tscn")
 	
 # Function called when the Settings Button is pressed
 func _on_SettingsButton_pressed():

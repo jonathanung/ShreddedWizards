@@ -84,7 +84,6 @@
 	#pass
  #
 
-
 class_name Player extends CharacterBody2D
 
 var MaxHealth: int = 100;
@@ -200,22 +199,27 @@ func _ready():
 	BaseItemUsed(item_Base[1])
 	pass
 
-func _physics_process(delta):
+func _enter_tree():
+	if (multiplayer.multiplayer_peer != null):
+		set_multiplayer_authority(name.to_int())
 
+func _physics_process(delta):
 	# Here I am just setting the index in the array to empty string after item has been used
 	# We can find better way to implement in the future if we want - Sam
-	if Input.is_action_just_pressed("item_slot_1"):
-		BaseItemUsed(item_Base[0])
-		item_Base[0] = ""
-	if Input.is_action_just_pressed("item_slot_2"):
-		BaseItemUsed(item_Base[1])
-		item_Base[1] = ""
-	if Input.is_action_just_pressed("item_super"):
-		UltItemUsed(item_Ult)
-		item_Ult = ""
+	if (multiplayer.multiplayer_peer != null):
+		if is_multiplayer_authority():
+			if Input.is_action_just_pressed("item_slot_1"):
+				BaseItemUsed(item_Base[0])
+				item_Base[0] = ""
+			if Input.is_action_just_pressed("item_slot_2"):
+				BaseItemUsed(item_Base[1])
+				item_Base[1] = ""
+			if Input.is_action_just_pressed("item_super"):
+				UltItemUsed(item_Ult)
+				item_Ult = ""
 
-	if not is_on_floor():
-		velocity.y += Gravity*delta
+			if not is_on_floor():
+				velocity.y += Gravity*delta
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JumpVelocity
@@ -225,7 +229,14 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x,MaxVelocityX*direction,AccelerationX)
 	else:
 		velocity.x = move_toward(velocity.x,0,AccelerationX)
-		
+#
+	#velocity = Input.get_vector("ui_left","ui_right","ui_up","ui_down") * 400
+	#print(name, ": ", position.x, ", ", position.y)
+			
+		# else:
+		# 	velocity = Vector2(0, 0)	
+		# 	self.move_and_slide()
+	
 	self.move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
