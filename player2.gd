@@ -238,9 +238,9 @@ func attack(Atk):
 			
 func takeDamage(Atk, Muscle):
 	if Atk == AttackType.BASIC:
-		CurrentHealth -= .04*Muscle
-	elif Atk == AttackType.STRONG:
 		CurrentHealth -= .1*Muscle
+	elif Atk == AttackType.STRONG:
+		CurrentHealth -= .3*Muscle
 	elif Atk == AttackType.RANGED:
 		CurrentHealth -= .03*Muscle
 
