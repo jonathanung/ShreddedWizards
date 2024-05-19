@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b162i6wcovwxq"
-path="res://.godot/imported/proteinpowder.png-3725853856adc1c04e6cf181627a404a.ctex"
+uid="uid://tjqo6axtb703"
+path="res://.godot/imported/book.png-1e0824071d117c5bb5b335fcf6ee579a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/powerups/proteinpowder.png"
-dest_files=["res://.godot/imported/proteinpowder.png-3725853856adc1c04e6cf181627a404a.ctex"]
+source_file="res://sprites/powerups/book.png"
+dest_files=["res://.godot/imported/book.png-1e0824071d117c5bb5b335fcf6ee579a.ctex"]
 
 [params]
 

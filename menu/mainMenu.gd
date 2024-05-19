@@ -2,13 +2,11 @@ extends Control
 
 # Function called when the Start Button is pressed
 func _on_StartButton_pressed():
-	var game_scene = load("res://path_to_your_game_scene.tscn")
-	get_tree().change_scene_to(game_scene)
+	get_tree().change_scene_to_file("res://item_select.tscn")
 
 # Function called when the Settings Button is pressed
 func _on_SettingsButton_pressed():
-	var settings_scene = load("res://path_to_your_settings_scene.tscn")
-	get_tree().change_scene_to(settings_scene)
+	get_tree().change_scene_to_file("res://item_select.tscn")
 
 # Function called when the Exit Button is pressed
 func _on_ExitButton_pressed():
