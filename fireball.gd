@@ -1,6 +1,6 @@
-extends Area2D
+extends Node2D
 
-var speed = 500
+var speed = 250
 
 enum AttackType {
 	BASIC,
@@ -8,16 +8,19 @@ enum AttackType {
 	RANGED
 }
 
+func _ready():
+	$Area2D.connect("body_entered",Callable(self,"_fireball_hit"))
+	$Area2D.connect("body_exited",Callable(self,"_fireball_exited"))
+
 func _physics_process(delta):
 	position += transform.x * speed * delta
 	
 func die():
 	queue_free()
 
-func _on_Area2D_body_entered(body):
-	print(body.name)
+func _fireball_hit(body):
 	if body is Player:
-		body.takeDamage(AttackType.RANGED, 100)
-	elif body is Dummy:
-		body.takeDamage(AttackType.RANGED, 100)
+		body.takeDamage(AttackType.RANGED,50)
+	if body is Dummy:
+		body.takeDamage(AttackType.RANGED,50)
 	die()

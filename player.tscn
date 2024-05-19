@@ -23,7 +23,6 @@ script = ExtResource("1_fculk")
 
 [node name="Wand" type="Marker2D" parent="."]
 position = Vector2(-9.31493, 0)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6pflv")

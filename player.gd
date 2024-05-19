@@ -188,11 +188,12 @@ func isDead():
 	return false
 	
 func attack(Atk):
-	if Atk == AttackType.RANGED and CurrentMana > 0:
-		CurrentMana -= 1
-		var f = fireballResource.instantiate()
-		owner.add_child(f)
-		f.transform = $Wand.global_transform
+	if Atk == AttackType.RANGED:
+		if CurrentMana > 0:
+			CurrentMana -= 1
+			var f = fireballResource.instantiate()
+			owner.add_child(f)
+			f.transform = $Wand.global_transform
 		
 	elif isLeftDir:
 		for body in bodiesLeft:
