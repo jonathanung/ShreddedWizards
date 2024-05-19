@@ -136,6 +136,15 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="IceCream" type="TextureButton" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer"]
+layout_mode = 2
+script = ExtResource("2_lkuj1")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/UltimateVBox/UltimateItemGridContainer/IceCream"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="TextVBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
