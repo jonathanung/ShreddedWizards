@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0v3q1q6hkm48"]
+[gd_scene load_steps=5 format=3 uid="uid://3wa5q0tbgl5h"]
 
 [ext_resource type="Texture2D" uid="uid://w2b4es813tgf" path="res://sprites/players/wizard1.png" id="1_4kcew"]
 [ext_resource type="Script" path="res://player.gd" id="1_fculk"]
@@ -16,12 +16,9 @@ scale = Vector2(2.14709, 2.03643)
 script = ExtResource("1_fculk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-scale = Vector2(0.9, 0.9)
 shape = SubResource("CircleShape2D_6pflv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0.356333, 0.521914)
-scale = Vector2(0.985153, 1.02175)
 texture = ExtResource("1_4kcew")
 region_enabled = true
 region_rect = Rect2(2.08165e-12, 2.08165e-12, 16, 16)
