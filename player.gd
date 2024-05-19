@@ -66,7 +66,7 @@ func BaseItemUsed(item: String):
 		await get_tree().create_timer(15.0).timeout
 		setDefaultMaxAttributes()
 
-	if (item == "Book"):
+	elif (item == "Book"):
 		CurrentHealth = min(CurrentHealth + 0.0666 * MaxHealth, MaxHealth*1.0666)
 		CurrentMana = min(CurrentMana + 0.0666 * MaxMana, MaxMana*1.0666)
 		Muscle *= 1.0666
@@ -75,23 +75,23 @@ func BaseItemUsed(item: String):
 		await get_tree().create_timer(10.0).timeout
 		setDefaultMaxAttributes()
 
-	if (item == "Creatine"):
+	elif (item == "Creatine"):
 		CurrentMana = min(CurrentMana + 0.25 * MaxMana, MaxMana*1.25)
 		await get_tree().create_timer(10.0).timeout
 		setDefaultMaxAttributes()
 
-	if (item == "LiftingStraps"):
+	elif (item == "LiftingStraps"):
 		CurrentMana = min(CurrentMana + 0.1 * MaxMana, MaxMana*1.25)
 		Muscle *= 1.1
 		await get_tree().create_timer(10.0).timeout
 		setDefaultMaxAttributes()
 
-	if (item == "PreWorkout"):
+	elif (item == "PreWorkout"):
 		MaxVelocityX *= 1.25
 		await get_tree().create_timer(15.0).timeout
 		setDefaultMaxAttributes()
 
-	if (item == "ProteinPowder"):
+	elif (item == "ProteinPowder"):
 		Muscle *= 1.25
 		await get_tree().create_timer(10.0).timeout
 		setDefaultMaxAttributes()
@@ -103,17 +103,19 @@ func UltItemUsed(item: String):
 		await get_tree().create_timer(10.0).timeout
 		setDefaultMaxAttributes()
 
-	if (item == "Baton"):
+	elif (item == "Baton"):
 		#implement extra range later
 		await get_tree().create_timer(25.0).timeout
 		setDefaultMaxAttributes()
 		pass
 
-	if (item == "HealthPot"):
+	elif (item == "HealthPot"):
 		CurrentHealth = CurrentHealth + (MaxHealth - CurrentHealth)*0.5
-	if (item == "ManaPot"):
+
+	elif (item == "ManaPot"):
 		CurrentMana = MaxMana
-	if (item == "IceCream"):
+
+	elif (item == "IceCream"):
 		#implement Marvin Mode later
 		MaxVelocityX *= 2.5
 		await get_tree().create_timer(15.0).timeout
@@ -123,8 +125,6 @@ func UltItemUsed(item: String):
 func _ready():
 	item_Base = GlobalState.get_base_items()
 	item_Ult = GlobalState.get_ultimate_item()
-
-	BaseItemUsed(item_Base[1])
 	
 	isLeftDir = false;
 	isHost = true;
