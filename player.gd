@@ -8,13 +8,17 @@ var Mana: int = 10;
 
 var Gravity: int = 400
 
-var JumpForce: int = -1200
+var JumpVelocity: int = -400
 
-var Velocity: Vector2 = Vector2.ZERO
+#var Velocity: Vector2 = Vector2.ZERO
 
-var IsOnGround: bool = false
+#var IsOnGround: bool = false
 
-var GroundPosition = 580
+#var GroundPosition = 580
+
+const MaxVelocityX: int = 1000
+
+const AccelerationX: int = 500
 
 func _init():
 	pass	
@@ -39,25 +43,20 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	IsOnGround = position.y <= GroundPosition and position.y >= (GroundPosition - 2)
 	
 	print("Y: ", position.y)
 	
-	if (!IsOnGround):
-		velocity.y = Gravity * 50 * delta
+	if not is_on_floor():
+		velocity.y += Gravity*delta
+		
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JumpVelocity
+		
+	var direction = Input.get_axis("move_left","move_right")
+	if direction:
+		velocity.x = move_toward(velocity.x,MaxVelocityX*direction,AccelerationX)
 	else:
-		velocity.y = 0
-
-	if (Input.is_action_pressed("move_left")):
-
-		self.velocity.x -= 1000 * delta
-
-	elif (Input.is_action_pressed("move_right")):
-		velocity.x += 1000 * delta
-
-	elif (Input.is_action_pressed("jump")):
-		while (IsOnGround):
-			velocity.y = JumpForce
+		velocity.x = move_toward(velocity.x,0,AccelerationX)
 		
 	self.move_and_slide()
 
