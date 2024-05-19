@@ -76,6 +76,7 @@ shape = SubResource("RectangleShape2D_6wgx8")
 
 [node name="mapboundary" type="Area2D" parent="."]
 position = Vector2(583, 1032)
+metadata/worldboundary = true
 
 [node name="bottom" type="CollisionShape2D" parent="mapboundary"]
 position = Vector2(53.5, -174)
