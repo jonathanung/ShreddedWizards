@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Shredded Wizards"
+run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -24,6 +25,12 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="Shredded Wizards"
+
+[file_customization]
+
+folder_colors={
+"res://menu/": "purple"
+}
 
 [rendering]
 
