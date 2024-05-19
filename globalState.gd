@@ -16,3 +16,9 @@ func set_ultimate_item(item_name):
 	selected_ultimate_item = item_name
 	print(selected_ultimate_item)
 
+#add getters for items
+func get_base_items():
+	return selected_base_items
+
+func get_ultimate_item():
+	return selected_ultimate_item

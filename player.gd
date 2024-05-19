@@ -12,10 +12,6 @@ var JumpForce: int = -1200
 
 var Velocity: Vector2 = Vector2.ZERO
 
-var IsOnGround: bool = false
-
-var GroundPosition = 580
-
 func _init():
 	pass	
 
@@ -33,17 +29,23 @@ func UseMana(mana: int):
 	if (self.Mana < 0):
 		self.Mana = 0
 
+func BaseItemStats(item1: String, item2: String):
+	if (item1 == "gloves" or item2 == "gloves"):
+		print("Fuck you")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# self.velocity.x += 40
+	var item_Base: Array = GlobalState.get_base_items()
+	var item_Ult: String = GlobalState.get_ultimate_item()
+
+	BaseItemStats(item_Base[0], item_Base[1])
+	print("fuck you")
 	pass
 
-func _physics_process(delta):
-	IsOnGround = position.y <= GroundPosition and position.y >= (GroundPosition - 2)
-	
+func _physics_process(delta):	
 	print("Y: ", position.y)
 	
-	if (!IsOnGround):
+	if (not is_on_floor()):
 		velocity.y = Gravity * 50 * delta
 	else:
 		velocity.y = 0
@@ -56,7 +58,7 @@ func _physics_process(delta):
 		velocity.x += 1000 * delta
 
 	elif (Input.is_action_pressed("jump")):
-		while (IsOnGround):
+		while (is_on_floor()):
 			velocity.y = JumpForce
 		
 	self.move_and_slide()
