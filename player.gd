@@ -148,6 +148,10 @@ func _physics_process(delta):
 		item_Ult = ""
 	if Input.is_action_just_pressed("basic"):
 		attack(AttackType.BASIC)
+	#do timers here
+	if Input.is_action_just_pressed("strong"):
+		attack(AttackType.STRONG)
+	#do timers here
 
 	if not is_on_floor():
 		velocity.y += Gravity*delta
