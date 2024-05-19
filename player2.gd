@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody2D
+class_name Player2 extends CharacterBody2D
 
 var MaxHealth: float = 100
 var CurrentHealth: float = 100
@@ -123,8 +123,8 @@ func UltItemUsed(item: String):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	item_Base = GlobalState.get_base_items()
-	item_Ult = GlobalState.get_ultimate_item()
+	item_Base = GlobalState.get_base_items_2()
+	item_Ult = GlobalState.get_ultimate_item_2()
 	
 	isLeftDir = false;
 	isHost = true;
@@ -137,29 +137,29 @@ func _physics_process(delta):
 
 	# Here I am just setting the index in the array to empty string after item has been used
 	# We can find better way to implement in the future if we want - Sam
-	if Input.is_action_just_pressed("item_slot_1"):
+	if Input.is_action_just_pressed("item_slot_1_2"):
 		BaseItemUsed(item_Base[0])
 		item_Base[0] = ""
-	if Input.is_action_just_pressed("item_slot_2"):
+	if Input.is_action_just_pressed("item_slot_2_2"):
 		BaseItemUsed(item_Base[1])
 		item_Base[1] = ""
-	if Input.is_action_just_pressed("item_super"):
+	if Input.is_action_just_pressed("item_super_2"):
 		UltItemUsed(item_Ult)
 		item_Ult = ""
-	if Input.is_action_just_pressed("basic"):
+	if Input.is_action_just_pressed("basic_2"):
 		attack(AttackType.BASIC)
 	#do timers here
-	if Input.is_action_just_pressed("strong"):
+	if Input.is_action_just_pressed("strong_2"):
 		attack(AttackType.STRONG)
 	#do timers here
 
 	if not is_on_floor():
 		velocity.y += Gravity*delta
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump_2") and is_on_floor():
 		velocity.y = JumpVelocity
 		
-	var direction = Input.get_axis("move_left","move_right")
+	var direction = Input.get_axis("move_left_2","move_right_2")
 	if direction:
 		velocity.x = move_toward(velocity.x,MaxVelocityX*direction,AccelerationX)
 		#print(velocity.x)

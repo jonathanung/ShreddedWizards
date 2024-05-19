@@ -40,8 +40,8 @@ func _ready():
 	ultimateLabel = $VBoxContainer/HBoxContainer/TextVBox/UltimateLabel
 	errLabel = $VBoxContainer/HBoxContainer/TextVBox/ErrLabel
 	
-	baseLabel.text = "PLAYER 1 Base Items: "
-	ultimateLabel.text = "PLAYER 1 Ultimate Item: "
+	baseLabel.text = "PLAYER 2 Base Items: "
+	ultimateLabel.text = "PLAYER 2 Ultimate Item: "
 	errLabel.text = ""
 	
 	var goButton = $VBoxContainer/Button
@@ -69,7 +69,7 @@ func _update_base_item_buttons():
 	#for item in base_items:
 		#if item is TextureButton:
 			#item.disabled = item.item_name in selected_base_items or (selected_base_items.size() >= MAX_BASE_ITEMS and item.item_name not in selected_base_items)
-	baseLabel.text = "PLAYER 1 Base Items: "
+	baseLabel.text = "PLAYER 2 Base Items: "
 	if len(selected_base_items) > 0:
 		for i in range(len(selected_base_items)):
 			baseLabel.text += selected_base_items[i]
@@ -83,17 +83,17 @@ func _update_ultimate_item_buttons():
 		#if item is TextureButton:
 			#item.disabled = selected_ultimate_item and item.item_name != selected_ultimate_item
 	
-	ultimateLabel.text = "PLAYER 1 Ultimate Item: "
+	ultimateLabel.text = "PLAYER 2 Ultimate Item: "
 	if selected_ultimate_item:
 		ultimateLabel.text += selected_ultimate_item
 	#print(selected_ultimate_item)
 	
 func _on_go_press():
 	if(len(selected_base_items) == 2 and selected_ultimate_item):
-		GlobalState.set_base_items(selected_base_items[0], selected_base_items[1])
-		GlobalState.set_ultimate_item(selected_ultimate_item)
+		GlobalState.set_base_items_2(selected_base_items[0], selected_base_items[1])
+		GlobalState.set_ultimate_item_2(selected_ultimate_item)
 		#get_tree().change_scene_to_file("res://arenas/testing.tscn")
-		get_tree().change_scene_to_file("res://item_select_2.tscn")
+		get_tree().change_scene_to_file("res://arenas/testing.tscn")
 	else:
 		errLabel.text = ""
 		if(len(selected_base_items) != 2):

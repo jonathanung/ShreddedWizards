@@ -58,9 +58,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -161.0
-offset_bottom = 23.0
+offset_left = 689.0
+offset_top = 4.0
+offset_right = 827.0
+offset_bottom = 27.0
 grow_horizontal = 0
+text = "P2ABILITIES"
 
 [node name="Player1AbilitiesText" type="Label" parent="."]
 layout_mode = 0
@@ -68,3 +71,4 @@ offset_left = 4.0
 offset_top = -1.0
 offset_right = 141.0
 offset_bottom = 22.0
+text = "P1ABILITIES"

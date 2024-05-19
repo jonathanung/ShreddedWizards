@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bh2b7b5gnlnif" path="res://sprites/world/brick.png" id="1_mqlg2"]
 [ext_resource type="Texture2D" uid="uid://ctaqmmssmkqpx" path="res://sprites/world/sky.png" id="2_iepep"]
 [ext_resource type="PackedScene" uid="uid://3wa5q0tbgl5h" path="res://player.tscn" id="3_jqvve"]
-[ext_resource type="PackedScene" uid="uid://cxwohkv5ow7fp" path="res://dummy.tscn" id="5_vqpeq"]
+[ext_resource type="PackedScene" uid="uid://ca63arcwkcvek" path="res://player2.tscn" id="5_o6v6m"]
 [ext_resource type="PackedScene" uid="uid://b0dbipsd255dq" path="res://status.tscn" id="6_s136u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0r28"]
@@ -99,7 +99,10 @@ position = Vector2(17.5, -1042)
 shape = SubResource("RectangleShape2D_y4ohg")
 
 [node name="Player" parent="." instance=ExtResource("3_jqvve")]
-position = Vector2(272, 619)
+position = Vector2(284, 619)
+
+[node name="Player2" parent="." instance=ExtResource("5_o6v6m")]
+position = Vector2(882, 616)
 
 [node name="YouLoseLabel" type="Label" parent="."]
 offset_left = 555.0
@@ -109,15 +112,6 @@ offset_bottom = 625.0
 text = "You died."
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="Dummy" parent="." instance=ExtResource("5_vqpeq")]
-position = Vector2(423, 618)
-
-[node name="DummyLabel" type="Label" parent="."]
-offset_left = 403.0
-offset_top = 543.0
-offset_right = 443.0
-offset_bottom = 566.0
 
 [node name="YouWinLabel" type="Label" parent="."]
 visible = false
