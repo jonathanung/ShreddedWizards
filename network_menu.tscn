@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bom1iquefr8nw"]
 
 [ext_resource type="Script" path="res://network/networkPane.gd" id="1_uexfu"]
-[ext_resource type="PackedScene" uid="uid://d0v3q1q6hkm48" path="res://player.tscn" id="2_co4th"]
+[ext_resource type="PackedScene" uid="uid://3wa5q0tbgl5h" path="res://player.tscn" id="2_co4th"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xl48r"]
 load_path = "res://.godot/imported/background.png-34ec9bc00e22decd71f136b155377768.ctex"

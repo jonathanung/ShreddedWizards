@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://3wa5q0tbgl5h"]
+[gd_scene load_steps=7 format=3 uid="uid://cxwohkv5ow7fp"]
 
-[ext_resource type="Texture2D" uid="uid://w2b4es813tgf" path="res://sprites/players/wizard1.png" id="1_4kcew"]
-[ext_resource type="Script" path="res://player.gd" id="1_fculk"]
+[ext_resource type="Script" path="res://dummy.gd" id="1_kw7b4"]
+[ext_resource type="Texture2D" uid="uid://w2b4es813tgf" path="res://sprites/players/wizard1.png" id="2_noyad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pflv"]
 radius = 8.0
@@ -11,21 +11,21 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgeps"]
-size = Vector2(21.3079, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bybev"]
 size = Vector2(21.1915, 20)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgeps"]
+size = Vector2(21.3079, 20)
+
+[node name="Dummy" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(2.14709, 2.03643)
-script = ExtResource("1_fculk")
+script = ExtResource("1_kw7b4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6pflv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("1_4kcew")
+texture = ExtResource("2_noyad")
 region_enabled = true
 region_rect = Rect2(2.08165e-12, 2.08165e-12, 16, 16)
 
@@ -35,13 +35,13 @@ replication_config = SubResource("SceneReplicationConfig_13nm7")
 [node name="LeftZone" type="Area2D" parent="."]
 
 [node name="Range" type="CollisionShape2D" parent="LeftZone"]
-position = Vector2(-10.2464, 0)
+position = Vector2(10.3629, -4.33681e-19)
 scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_rgeps")
+shape = SubResource("RectangleShape2D_bybev")
 
 [node name="RightZone" type="Area2D" parent="."]
 
 [node name="Range" type="CollisionShape2D" parent="RightZone"]
-position = Vector2(10.3629, -4.33681e-19)
+position = Vector2(-10.2464, 0)
 scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_bybev")
+shape = SubResource("RectangleShape2D_rgeps")

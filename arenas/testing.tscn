@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6mir6uwtl3le"]
+[gd_scene load_steps=16 format=3 uid="uid://c6mir6uwtl3le"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_64dsf"]
 [ext_resource type="Texture2D" uid="uid://bh2b7b5gnlnif" path="res://sprites/world/brick.png" id="1_mqlg2"]
 [ext_resource type="Texture2D" uid="uid://ctaqmmssmkqpx" path="res://sprites/world/sky.png" id="2_iepep"]
 [ext_resource type="PackedScene" uid="uid://3wa5q0tbgl5h" path="res://player.tscn" id="3_jqvve"]
+[ext_resource type="PackedScene" uid="uid://cxwohkv5ow7fp" path="res://dummy.tscn" id="5_vqpeq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0r28"]
 texture = ExtResource("1_mqlg2")
@@ -107,3 +108,12 @@ offset_bottom = 625.0
 text = "You died."
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Dummy" parent="." instance=ExtResource("5_vqpeq")]
+position = Vector2(423, 618)
+
+[node name="DummyLabel" type="Label" parent="."]
+offset_left = 403.0
+offset_top = 543.0
+offset_right = 443.0
+offset_bottom = 566.0

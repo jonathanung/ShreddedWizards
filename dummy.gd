@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody2D
+class_name Dummy extends CharacterBody2D
 
 var MaxHealth: float = 100
 var CurrentHealth: float = 100
@@ -135,35 +135,35 @@ func _ready():
 
 func _physics_process(delta):
 
-	# Here I am just setting the index in the array to empty string after item has been used
-	# We can find better way to implement in the future if we want - Sam
-	if Input.is_action_just_pressed("item_slot_1"):
-		BaseItemUsed(item_Base[0])
-		item_Base[0] = ""
-	if Input.is_action_just_pressed("item_slot_2"):
-		BaseItemUsed(item_Base[1])
-		item_Base[1] = ""
-	if Input.is_action_just_pressed("item_super"):
-		UltItemUsed(item_Ult)
-		item_Ult = ""
-	if Input.is_action_just_pressed("basic"):
-		attack(AttackType.BASIC)
-
-	if not is_on_floor():
-		velocity.y += Gravity*delta
-		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JumpVelocity
-		
-	var direction = Input.get_axis("move_left","move_right")
-	if direction:
-		velocity.x = move_toward(velocity.x,MaxVelocityX*direction,AccelerationX)
-		#print(velocity.x)
-		isLeftDir = direction < 0
-		flip_sprite()
-	else:
-		velocity.x = move_toward(velocity.x,0,AccelerationX)
-		#print(velocity.x)
+	## Here I am just setting the index in the array to empty string after item has been used
+	## We can find better way to implement in the future if we want - Sam
+	#if Input.is_action_just_pressed("item_slot_1"):
+		#BaseItemUsed(item_Base[0])
+		#item_Base[0] = ""
+	#if Input.is_action_just_pressed("item_slot_2"):
+		#BaseItemUsed(item_Base[1])
+		#item_Base[1] = ""
+	#if Input.is_action_just_pressed("item_super"):
+		#UltItemUsed(item_Ult)
+		#item_Ult = ""
+#
+	#if not is_on_floor():
+		#velocity.y += Gravity*delta
+		#
+	#if Input.is_action_just_pressed("jump") and is_on_floor():
+		#velocity.y = JumpVelocity
+		#
+	#var direction = Input.get_axis("move_left","move_right")
+	#if direction:
+		#velocity.x = move_toward(velocity.x,MaxVelocityX*direction,AccelerationX)
+		##print(velocity.x)
+		#if velocity.x < 0:
+			#isLeftDir = true
+		#else:
+			#isLeftDir = false	
+	#else:
+		#velocity.x = move_toward(velocity.x,0,AccelerationX)
+		##print(velocity.x)
 		
 	self.move_and_slide()
 
@@ -181,48 +181,38 @@ func isDead():
 func attack(Atk):
 	if isLeftDir:
 		for body in bodiesLeft:
-			if body is Player:
-				body.takeDamage(Atk, Muscle)
-			elif body is Dummy:
-				body.takeDamage(Atk, Muscle)
+			#body.takeDamange(Atk, Muscle)
+			print(typeof(body))
 	else:
 		for body in bodiesRight:
-			if body is Player:
-				body.takeDamage(Atk, Muscle)
-			elif body is Dummy:
-				#print("Hit!")
-				body.takeDamage(Atk, Muscle)
+			#body.takeDamange(Atk, Muscle)
+			print(typeof(body))
 			
 func takeDamage(Atk, Muscle):
+	print(CurrentHealth)
 	if Atk == AttackType.BASIC:
 		CurrentHealth -= .04*Muscle
 	elif Atk == AttackType.STRONG:
 		CurrentHealth -= .1*Muscle
 	elif Atk == AttackType.RANGED:
 		CurrentHealth -= .03*Muscle
+	print(CurrentHealth)
 
 func _left_zone_entered(body):
 	if body != self && body not in bodiesLeft:
 		bodiesLeft.append(body)
-		#print(typeof(body))
 
 func _left_zone_exited(body):
 	if body != self && body in bodiesLeft:
 		bodiesLeft.erase(body)
-		#print(typeof(body))
 		
 func _right_zone_entered(body):
 	if body != self && body not in bodiesRight:
-		bodiesRight.append(body)
-		#print(typeof(body))
+		bodiesLeft.append(body)
 
 func _right_zone_exited(body):
 	if body != self && body in bodiesRight:
-		bodiesRight.erase(body)
-		#print(typeof(body))
-
+		bodiesLeft.erase(body)
+		
 func getHP():
 	return self.CurrentHealth
-
-func flip_sprite():
-	$Sprite2D2.flip_h = !isLeftDir
