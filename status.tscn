@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0dbipsd255dq"]
+
+[ext_resource type="Script" path="res://status.gd" id="1_wpxvt"]
+
+[node name="Status" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wpxvt")
+
+[node name="Player1HP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 871.0
+offset_right = 320.0
+offset_bottom = 894.0
+text = "PLAYER 1 HP:"
+
+[node name="Player2HP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 870.0
+offset_right = 912.0
+offset_bottom = 902.0
+text = "PLAYER 2 HP:
+"
+
+[node name="Player1Ability1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player1Ability2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player1Ability3" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player2Ability1" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player2Ability2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player2Ability3" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player2AbilitiesText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -161.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="Player1AbilitiesText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 141.0
+offset_bottom = 22.0

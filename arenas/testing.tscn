@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6mir6uwtl3le"]
+[gd_scene load_steps=17 format=3 uid="uid://c6mir6uwtl3le"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_64dsf"]
 [ext_resource type="Texture2D" uid="uid://bh2b7b5gnlnif" path="res://sprites/world/brick.png" id="1_mqlg2"]
 [ext_resource type="Texture2D" uid="uid://ctaqmmssmkqpx" path="res://sprites/world/sky.png" id="2_iepep"]
 [ext_resource type="PackedScene" uid="uid://3wa5q0tbgl5h" path="res://player.tscn" id="3_jqvve"]
 [ext_resource type="PackedScene" uid="uid://cxwohkv5ow7fp" path="res://dummy.tscn" id="5_vqpeq"]
+[ext_resource type="PackedScene" uid="uid://b0dbipsd255dq" path="res://status.tscn" id="6_s136u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0r28"]
 texture = ExtResource("1_mqlg2")
@@ -117,3 +118,16 @@ offset_left = 403.0
 offset_top = 543.0
 offset_right = 443.0
 offset_bottom = 566.0
+
+[node name="YouWinLabel" type="Label" parent="."]
+visible = false
+offset_left = 550.0
+offset_top = 379.0
+offset_right = 630.0
+offset_bottom = 402.0
+text = "You wynn!"
+
+[node name="Status" parent="." instance=ExtResource("6_s136u")]
+offset_top = 12.0
+offset_right = 33.0
+offset_bottom = 12.0

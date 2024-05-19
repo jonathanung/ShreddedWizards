@@ -5,7 +5,7 @@ var player
 
 var spawnDummy: bool = true
 var dummy
-var dummyLabel
+#var dummyLabel
 
 @export var DefaultPlatformY: int = -1
 
@@ -14,8 +14,8 @@ func _ready():
 	player = $Player
 	if spawnDummy:
 		dummy = $Dummy
-		dummyLabel = $DummyLabel
-		dummyLabel.text = "Dummy HP: %s" % dummy.getHP()
+		#dummyLabel = $DummyLabel
+		#dummyLabel.text = "Dummy HP: %s" % dummy.getHP()
 	$Player.connect("hit", Callable(self, "_register_hit"))
 	$YouLoseLabel.visible = false  # Initially hide the "You Lose" label
 	$Timer.connect("timeout", Callable(self, "_on_timer_timeout"))
@@ -29,12 +29,20 @@ func _process(delta):
 		_show_you_lose_message()
 	if spawnDummy and dummy.isDead() and $Timer.is_stopped():
 		_show_dummy_dead_message()
-	if spawnDummy and $Timer.is_stopped():
-		dummyLabel.text = "Dummy HP: %s" % dummy.getHP()
+	#if spawnDummy and $Timer.is_stopped():
+		#dummyLabel.text = "Dummy HP: %s" % dummy.getHP()
+	$Status/Player1HP.text = "PLAYER 1 HP: %s" % player.getHP()
+	$Status/Player1AbilitiesText.text = array_to_string(player.getAbilities())
+	if spawnDummy:
+		$Status/Player2HP.text = "DUMMU HP: %s" % dummy.getHP()
+	else:
+		pass #do something here
+	#$Status/Player1Abilities
 
 func _show_dummy_dead_message():
 	dummy.visible = false
-	$DummyLabel.text = "Dummy is dead!"
+	#$DummyLabel.text = "Dummy is dead!"
+	$YouWinLabel.visible = true
 	$Timer.start(3.0)  # Start the timer to wait for 3 seconds
 
 func _show_you_lose_message():
@@ -58,3 +66,10 @@ func _on_map_boundary_body_entered(body):
 
 func _register_hit():
 	pass
+
+func array_to_string(arr: Array) -> String:
+	var s = ""
+	for i in arr:
+		s += String(i) + " "
+	return s
+

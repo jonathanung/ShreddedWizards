@@ -230,3 +230,11 @@ func getHP():
 
 func flip_sprite():
 	$Sprite2D2.flip_h = !isLeftDir
+	
+func getAbilities():
+	var res: Array = []
+	for item in item_Base:
+		res.append(item)
+	if item_Ult:
+		res.append(item_Ult)
+	return res
