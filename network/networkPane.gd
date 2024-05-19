@@ -31,7 +31,7 @@ func _ready():
 		_name_edit.text = OS.get_environment("USERNAME")
 	else:
 		var desktop_path = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP).replace("\\", "/").split("/")
-		_name_edit.text = desktop_path[desktop_path.size() - 2]
+		_name_edit.text = "trash" #desktop_path[desktop_path.size() - 2]
 
 
 func start_game():
