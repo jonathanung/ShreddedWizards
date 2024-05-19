@@ -34,7 +34,7 @@ func set_button_opacity(button: Button):
 	button.add_theme_color_override("font_color", Color(0, 0, 0))  # Black text color
 
 func _ready():
-	NetworkPane = $NetworkPane
+	#NetworkPane = $NetworkPane
 	
 	$VBoxContainer/StartButton.text = "Start Game"
 	$VBoxContainer/SettingsButton.text = "Settings"
