@@ -20,7 +20,7 @@ var item_Base: Array
 var item_Ult: String
 
 func _init():
-	pass	
+	pass
 
 func Die():
 	CurrentHealth = 0
@@ -113,6 +113,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	
+	#print("Y: ", position.y)
 
 	# Here I am just setting the index in the array to empty string after item has been used
 	# We can find better way to implement in the future if we want - Sam
@@ -142,5 +144,12 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# HIT BACKSLASH TO DIE TEST
+	if Input.is_action_just_pressed("die"):
+		print("Force Die")
+		Die()
  
+func isDead():
+	if self.Health <= 0:
+		return true
+	return false
