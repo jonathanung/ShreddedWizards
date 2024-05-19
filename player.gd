@@ -19,7 +19,15 @@ var AccelerationX: int = 100
 var item_Base: Array
 var item_Ult: String
 
+var isLeftDir: bool
+
 @onready var sprite: Sprite2D = $Sprite2D
+
+enum AttackType {
+	BASIC,
+	STRONG,
+	RANGED
+}
 
 func _init():
 	pass	
@@ -138,8 +146,14 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left","move_right")
 	if direction:
 		velocity.x = move_toward(velocity.x,MaxVelocityX*direction,AccelerationX)
+		#print(velocity.x)
+		if velocity.x < 0:
+			isLeftDir = true
+		else:
+			isLeftDir = false	
 	else:
 		velocity.x = move_toward(velocity.x,0,AccelerationX)
+		#print(velocity.x)
 		
 	self.move_and_slide()
 
@@ -153,3 +167,9 @@ func isDead():
 	if self.CurrentHealth <= 0:
 		return true
 	return false
+	
+func getAttack():
+	pass
+	
+func takeDamage():
+	pass
