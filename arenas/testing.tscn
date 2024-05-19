@@ -97,8 +97,6 @@ shape = SubResource("RectangleShape2D_3avfb")
 position = Vector2(17.5, -1042)
 shape = SubResource("RectangleShape2D_y4ohg")
 
-[node name="Player" parent="." instance=ExtResource("3_jqvve")]
-
 [node name="Host" type="Button" parent="."]
 offset_left = 520.0
 offset_top = 336.0
@@ -113,6 +111,10 @@ offset_right = 649.0
 offset_bottom = 430.0
 text = "Join
 "
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("..")
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

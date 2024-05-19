@@ -106,7 +106,7 @@ var item_Base: Array
 var item_Ult: String
 
 func _init():
-	pass	
+	self.position = Vector2(20, 0)	
 
 func Die():
 	print("Died")
@@ -206,10 +206,11 @@ func _enter_tree():
 func _physics_process(delta):
 	# Here I am just setting the index in the array to empty string after item has been used
 	# We can find better way to implement in the future if we want - Sam
-	position = position.clamp(Vector2(0, 0), Vector2(1200, 900))
+	position = position.clamp(Vector2(40, 40), Vector2(1200, 900))
 	
 	if (multiplayer.multiplayer_peer != null):
 		if is_multiplayer_authority():
+			print(str(position))
 			if Input.is_action_just_pressed("item_slot_1"):
 				BaseItemUsed(item_Base[0])
 				item_Base[0] = ""
