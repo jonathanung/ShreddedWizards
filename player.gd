@@ -21,7 +21,7 @@ const MaxVelocityX: int = 1000
 const AccelerationX: int = 500
 
 func _init():
-	pass	
+	pass
 
 func Die():
 	self.Health = 0
@@ -44,7 +44,7 @@ func _ready():
 
 func _physics_process(delta):
 	
-	print("Y: ", position.y)
+	#print("Y: ", position.y)
 	
 	if not is_on_floor():
 		velocity.y += Gravity*delta
@@ -62,5 +62,12 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# HIT BACKSLASH TO DIE TEST
+	if Input.is_action_just_pressed("die"):
+		print("Force Die")
+		Die()
  
+func isDead():
+	if self.Health <= 0:
+		return true
+	return false
