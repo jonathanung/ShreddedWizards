@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://jcubgl4f4urc"]
+[gd_scene load_steps=4 format=3 uid="uid://jcubgl4f4urc"]
 
+[ext_resource type="Script" path="res://level.gd" id="1_l5fta"]
 [ext_resource type="PackedScene" uid="uid://dm4x12ykv2cur" path="res://player.tscn" id="1_usqxx"]
-[ext_resource type="PackedScene" uid="uid://f6qm2lkc8vxo" path="res://ground.tscn" id="2_dneru"]
+[ext_resource type="PackedScene" uid="uid://dbc7jqd8us1kf" path="res://ground.tscn" id="2_dneru"]
 
 [node name="Level" type="Node2D"]
-
-[node name="Ground" parent="." instance=ExtResource("2_dneru")]
-position = Vector2(560, 851)
-scale = Vector2(78.9564, 26.7493)
+script = ExtResource("1_l5fta")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_usqxx")]
-position = Vector2(108, 505)
+position = Vector2(78, 548)
 scale = Vector2(10.1089, 10.1437)
+
+[node name="Area2D" parent="." instance=ExtResource("2_dneru")]
+position = Vector2(60, 671)

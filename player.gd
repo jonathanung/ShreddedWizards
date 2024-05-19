@@ -6,7 +6,15 @@ var Muscle: int = 50;
 
 var Mana: int = 10;
 
-var Velocity: int = 0;
+var Gravity: int = 400
+
+var JumpForce: int = -1200
+
+var Velocity: Vector2 = Vector2.ZERO
+
+var IsOnGround: bool = false
+
+var GroundPosition = 580
 
 func _init():
 	pass	
@@ -27,17 +35,33 @@ func UseMana(mana: int):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.velocity.x += 40
+	# self.velocity.x += 40
 	pass
 
 func _physics_process(delta):
-	move_and_collide(Vector2(0, 1))
+	IsOnGround = position.y <= GroundPosition and position.y >= (GroundPosition - 2)
 	
+	print("Y: ", position.y)
+	
+	if (!IsOnGround):
+		velocity.y = Gravity * 50 * delta
+	else:
+		velocity.y = 0
+
 	if (Input.is_action_pressed("move_left")):
-		self.position.x -= self.velocity.x * delta
+
+		self.velocity.x -= 1000 * delta
+
 	elif (Input.is_action_pressed("move_right")):
-		self.position.x += self.velocity.x * delta
+		velocity.x += 1000 * delta
+
+	elif (Input.is_action_pressed("jump")):
+		while (IsOnGround):
+			velocity.y = JumpForce
+		
+	self.move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+ 
