@@ -16,10 +16,15 @@ scale = Vector2(2.14709, 2.03643)
 script = ExtResource("1_fculk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+scale = Vector2(0.9, 0.9)
 shape = SubResource("CircleShape2D_6pflv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0.356333, 0.521914)
+scale = Vector2(0.985153, 1.02175)
 texture = ExtResource("1_4kcew")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 16, 16)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_13nm7")

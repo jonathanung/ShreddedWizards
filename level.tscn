@@ -7,7 +7,7 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_aapnr")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_usqxx")]
+[node name="Player" parent="." instance=ExtResource("1_usqxx")]
 position = Vector2(78, 548)
 scale = Vector2(10.1089, 10.1437)
 
